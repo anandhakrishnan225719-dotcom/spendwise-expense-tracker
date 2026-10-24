@@ -10,7 +10,11 @@ const PORT = process.env.PORT || 5000;
 const categories = ['Food', 'Transport', 'Shopping', 'Bills', 'Health', 'Entertainment', 'Other'];
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    process.env.CLIENT_URL,
+  ].filter(Boolean),
 }));
 app.use(express.json());
 
